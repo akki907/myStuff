@@ -1,0 +1,42 @@
+<div class="container" ng-init="showNotes()">
+     <ng-include src="'templates/nav.tmpl.html'"></ng-include>
+<div class="create-bookmark-icon">
+
+   <button type="button" class="btn btn-primary btn-circle" ui-sref="note">
+   <span class="icon-plus"></span></button>
+</div>
+
+<div class="bookmark-list-container container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+<ng-include src="'templates/side-nav.client.view.html'"></ng-include>
+   </div>
+  <div class="col-md-10 pull-right">
+    <table ng-controller="SearchController" class="table table-hover table-striped table-bordered bookmark-list">
+      <thead >
+        <tr >
+          <th >Title</th>
+          <th >Description</th>
+          <!-- <th >Phone No</th> -->
+          <th >Time</th>
+          <th class="column-width">View</th>
+        </tr>
+      </thead>
+       <tbody>
+           <tr class="active " ng-repeat="bm in notes | filter:searchBookmarks | orderBy:sortOrder.order" >
+             <td>{{bm.title}}</td>
+             <td>{{bm.description}}</td>
+             <!-- <td>{{bm.phoneno}}</td> -->
+             <td>{{bm.created_at | date:"dd-MM-yyyy' ,' hh:mm:ss a"}} </td>
+             <td>
+               <button type="button" name="button" class="btn btn-primary" ui-sref="viewnote({id:bm._id})">View</button>
+               <!-- <span ui-sref="viewnote({id:bm._id})" class="icon-edit edit-action"></span> -->
+             </td>
+           </tr>
+       </tbody>
+
+    </table>
+  </div>
+</div>
+</div>
+</div>

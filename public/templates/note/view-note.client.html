@@ -1,0 +1,31 @@
+<div class="container" ng-init="showNoteById()">
+     <ng-include src="'templates/nav.tmpl.html'"></ng-include>
+
+
+<div class="bookmark-list-container container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+<ng-include src="'templates/side-nav.client.view.html'"></ng-include>
+   </div>
+
+   <div class="col-md-9" >
+
+     <form>
+        <div class="form-group">
+          <label for="Title">Title</label>
+          <input type="text" class="form-control" id="name" ng-model="note.title" readonly>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" class="form-control" id="description" ng-model="note.description" readonly>
+        </div>
+        <div class="form-group">
+          <label for="content">Content:</label>
+           <textarea class="form-control" rows="5" id="Content" ng-model="note.content" readonly></textarea>
+        </div>
+        <!-- <button type="button" class="btn btn-primary" ng-click="createNote(note)" >Save</button> -->
+      </form>
+   </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+<div class="container" ng-init="showContact()">
+     <ng-include src="'templates/nav.tmpl.html'"></ng-include>
+<div class="create-bookmark-icon">
+
+   <button type="button" class="btn btn-primary btn-circle" ui-sref="createContact">
+   <span class="icon-plus"></span></button>
+</div>
+
+<div class="bookmark-list-container container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+<ng-include src="'templates/side-nav.client.view.html'"></ng-include>
+   </div>
+  <div class="col-md-10 pull-right">
+    <table ng-controller="SearchController" class="table table-hover table-striped table-bordered bookmark-list">
+      <thead >
+        <tr >
+          <th >Name</th>
+          <th >Address</th>
+          <th >Phone No</th>
+          <th >Time</th>
+          <th class="column-width">Edit</th>
+        </tr>
+      </thead>
+       <tbody>
+           <tr class="active " ng-repeat="bm in contact | filter:searchBookmarks | orderBy:sortOrder.order">
+             <td>{{bm.name}}</td>
+             <td>{{bm.address}}</td>
+             <td>{{bm.phoneno}}</td>
+             <td>{{bm.created_at | date:"dd-MM-yyyy' ,' hh:mm:ss a"}} </td>
+             <td>
+               <span ui-sref="editcontact({id:bm._id})" class="icon-edit edit-action"></span>
+             </td>
+           </tr>
+       </tbody>
+
+    </table>
+  </div>
+</div>
+</div>
+</div>
